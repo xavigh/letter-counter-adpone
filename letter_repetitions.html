@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Dev Assesment</title>
+</head>
+<body>
+ 
+ <div class="container ">
+    
+    <h1 class="mb-5">Counting repeated letters </h1>
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Input</span>
+    <input id="input" type="text" class="form-control" placeholder="aaaabbbbbcca" value="aaaabbbbbcca" >    
+    </div>
+    <button  onclick="letterCounter()"  type="button" class="btn btn-primary">Count letters </button>
+    
+    <div id="res" class="text-dark mt-4"></div>    
+</div>
+
+
+<script>// STARTS JAVASCRIPT //
+       
+            
+       function letterCounter(){   
+            
+           
+             // get the input value using jquery   
+            let strInput = $("#input").val();
+          
+            // we convert the string to an array for a better manipulation
+            let strArray = strInput.split('');
+            let text_log = `This is the strArray = ${strArray}`;
+            console.log(text_log);
+            let array = [];     
+            let counter = 0;
+            let i = 0; 
+                    
+            // while loop to parse the letters
+             while( i < strArray.length ) {
+                //if the letter is equal to the next one keep counting this letter
+                if(strArray[i] === strArray[i+1]){ 
+                
+                    counter += 1;
+                    i++;
+                }
+                // if next letter is different we store the letter and its counter into the main array.
+                else {  
+                    counter += 1;
+                    let letter1 = strArray[i];                    
+                    let arrayTmp = [letter1, counter];
+                    array.push(arrayTmp); // we add the letter and its count into the main array to return.
+                    counter = 0;
+                    i++;
+                }              
+        
+            }        
+                      
+        
+            return document.getElementById('res').innerHTML = JSON.stringify(array);
+       }
+     
+       
+    
+    
+     
+//ENDS JAVASCRIPT </script>
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>  
+</body>
+</html>
+
