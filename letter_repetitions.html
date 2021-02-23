@@ -29,10 +29,9 @@
 <script>// STARTS JAVASCRIPT //
        
             
-       function letterCounter(){   
-            
+       function letterCounter(){              
            
-             // get the input value using jquery   
+            // get the input value using jquery   
             let strInput = $("#input").val();
           
             // we convert the string to an array for a better manipulation
@@ -51,7 +50,7 @@
                     counter += 1;
                     i++;
                 }
-                // if next letter is different we store the letter and its counter into the main array.
+                // if next letter is different we store the letter and its counter into the main array. and the loop goes on until the length of the array.
                 else {  
                     counter += 1;
                     let letter1 = strArray[i];                    
