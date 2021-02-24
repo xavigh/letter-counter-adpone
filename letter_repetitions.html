@@ -21,8 +21,8 @@
     <input id="input" type="text" class="form-control" placeholder="aaaabbbbbcca" value="aaaabbbbbcca" >    
     </div>
     <button  onclick="letterCounter()"  type="button" class="btn btn-primary">Count letters </button>
-    
-    <div id="res" class="text-dark mt-4"></div>    
+    <h2 class="mt-5">Output:</h2>
+    <div id="res" class="text-dark mt-4 h3"></div>    
 </div>
 
 
@@ -55,14 +55,13 @@
                     counter += 1;
                     let letter1 = strArray[i];                    
                     let arrayTmp = [letter1, counter];
-                    array.push(arrayTmp); // we add the letter and its count into the main array to return.
-                    counter = 0;
+                    array.push(arrayTmp); // we push the letter and its count into the main array to be returned.
+                    counter = 0; // this is key to start counting the next letter , counter reset to 0.
                     i++;
                 }              
         
             }        
-                      
-        
+            // Return the array as a string to view in browser window.                  
             return document.getElementById('res').innerHTML = JSON.stringify(array);
        }
      
