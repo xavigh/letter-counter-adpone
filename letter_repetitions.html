@@ -33,7 +33,10 @@
            
             // get the input value using jquery   
             let strInput = $("#input").val();
-          
+            //remove white spaces from string
+            strInput = strInput.replace(/\s/g, "");
+            let testInput = `This is the strInput without whte spaces = ${strInput}`;
+            console.log(testInput);
             // we convert the string to an array for a better manipulation
             let strArray = strInput.split('');
             let text_log = `This is the strArray = ${strArray}`;
@@ -41,17 +44,20 @@
             let array = [];     
             let counter = 0;
             let i = 0; 
+            
+            
                     
             // while loop to parse the letters
              while( i < strArray.length ) {
-                //if the letter is equal to the next one keep counting this letter
-                if(strArray[i] === strArray[i+1]){ 
+                //if the letter is equal to the next one AND there is no blank space, keep counting 
+                if(strArray[i] === strArray[i+1] ) { 
                 
                     counter += 1;
                     i++;
                 }
                 // if next letter is different we store the letter and its counter into the main array. and the loop goes on until the length of the array.
                 else {  
+                
                     counter += 1;
                     let letter1 = strArray[i];                    
                     let arrayTmp = [letter1, counter];
